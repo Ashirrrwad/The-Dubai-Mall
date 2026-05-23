@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@theme {
+  /* Editorial Luxury Font Families */
+  --font-serif: var(--font-serif), var(--font-cormorant), Cormorant Garamond, Playfair Display, Georgia, serif;
+  --font-sans: var(--font-sans), var(--font-jakarta), Plus Jakarta Sans, Inter, system-ui, sans-serif;
+
+  /* Custom Color Archetypes for Dubai Mall Luxury Deck */
+  --color-luxury-black: #050505;
+  --color-luxury-charcoal: #0b0b0b;
+  --color-luxury-pitch: #030303;
+  --color-luxury-gold: #c5a880;
+  --color-luxury-gold-dark: #9e825a;
+  --color-luxury-gold-light: #e0d1b8;
+  --color-luxury-grey: #8e8e93;
+  --color-luxury-light: #f5f5f7;
+
+  /* Restrained Animations */
+  --animate-fade-in-slow: fade-in-slow 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-slide-up-slow: slide-up-slow 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@layer base {
+  html, body {
+    background-color: var(--color-luxury-black);
+    color: var(--color-luxury-light);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Custom subtle luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-luxury-black);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #222;
+    border-radius: 99px;
+    transition: background 0.3s ease;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-luxury-gold);
+  }
+
+  ::selection {
+    background-color: var(--color-luxury-gold);
+    color: var(--color-luxury-black);
+  }
+}
+
+/* Premium Noise Overlay for Cinematic Analog Texture */
+.luxury-noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.02;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Lenis Smooth Scroll Configuration */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Luxury Editorial Grid System Utilities */
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .editorial-grid {
+    gap: 2.5rem;
+    padding: 0 4rem;
+  }
+}
+
+/* Shimmer overlay for elite luxury visual effects */
+.gold-shimmer-text {
+  background: linear-gradient(
+    to right,
+    var(--color-luxury-light) 20%,
+    var(--color-luxury-gold) 50%,
+    var(--color-luxury-light) 80%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shimmer 8s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
